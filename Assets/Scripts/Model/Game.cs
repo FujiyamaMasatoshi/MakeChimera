@@ -12,6 +12,7 @@ public class Game : MonoBehaviour
     public List<Animal> gameUsedAnimals = new List<Animal>(); // ゲームで使用されるAnimalsを保持するリスト
     public List<string> answerChimeraNames = new List<string>(); // ゲームの答えとして用意されたChimeraの名前
 
+
     private void Start()
     {
         InitGame();
@@ -51,6 +52,8 @@ public class Game : MonoBehaviour
     // 答えとなる組み合わせを生成する
     private void MakeAnswer()
     {
+        // gameUsedAnimalsのコピーをtempListとして用意する
+        List<Animal> tempList = new List<Animal>(gameUsedAnimals);
         // gameUsedAnimalsから、2種類を選択して、generatedChimeraNameに追加する
 
 
@@ -58,14 +61,14 @@ public class Game : MonoBehaviour
         for (int i=0; i<numChimera; i++)
         {
             // FirstCharacterを取得するAnimal
-            int randomFirst = Random.Range(0, gameUsedAnimals.Count);
-            Animal firstAnimal = gameUsedAnimals[randomFirst];
-            gameUsedAnimals.Remove(firstAnimal); // 選択したら削除
+            int randomFirst = Random.Range(0, tempList.Count);
+            Animal firstAnimal = tempList[randomFirst];
+            tempList.Remove(firstAnimal); // 選択したら削除
 
             // LastCharacterを取得するAnimal
-            int randomLast = Random.Range(0, gameUsedAnimals.Count);
-            Animal lastAnimal = gameUsedAnimals[randomLast];
-            gameUsedAnimals.Remove(lastAnimal); // 選択したら削除
+            int randomLast = Random.Range(0, tempList.Count);
+            Animal lastAnimal = tempList[randomLast];
+            tempList.Remove(lastAnimal); // 選択したら削除
 
 
 
