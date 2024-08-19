@@ -4,15 +4,37 @@ using UnityEngine;
 
 public class Animal : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public string japaneseName = "";
+
+    // 先頭文字を取得
+    public char GetFirstCharacter()
     {
-        
+        char firstCharacter = japaneseName[0];
+        return firstCharacter;
     }
 
-    // Update is called once per frame
-    void Update()
+    // 末尾文字を取得
+    public char GetLastCharacter()
     {
-        
+        char lastCharacter = japaneseName[japaneseName.Length - 1];
+        return lastCharacter;
+    }
+
+    
+    private void Test()
+    {
+        Debug.Log($"{japaneseName}");
+        Debug.Log($"First Character: {GetFirstCharacter()}");
+        Debug.Log($"Last Character: {GetLastCharacter()}");
+    }
+
+    // テスト実行
+    private void Start()
+    {
+        Test();
     }
 }
+
+
+
+
