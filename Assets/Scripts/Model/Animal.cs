@@ -20,7 +20,7 @@ public class Animal : MonoBehaviour
         return lastCharacter;
     }
 
-    
+    // テスト
     private void Test()
     {
         Debug.Log($"{japaneseName}");
@@ -31,7 +31,7 @@ public class Animal : MonoBehaviour
     // テスト実行
     private void Start()
     {
-        Test();
+        //Test();
     }
 }
 

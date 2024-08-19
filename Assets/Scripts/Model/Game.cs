@@ -5,6 +5,7 @@ using UnityEngine;
 public class Game : MonoBehaviour
 {
     [SerializeField, Header("全てのAnimalの数")] private List<Animal> animals;
+    
     [SerializeField, Header("キメラを生成する数")] private int numChimera = 5;
 
     
@@ -41,9 +42,9 @@ public class Game : MonoBehaviour
         // numChimeraの数だけ、ランダムにAnimalをgameUsedAnimalsにセットしていく
         for (int i = 0; i<numChimera*2; i++)
         {
-            int random = Random.Range(0, animalID.Count);
+            int random = animalID[Random.Range(0, animalID.Count)];
             gameUsedAnimals.Add(animals[random]);
-            animalID.RemoveAt(random);
+            animalID.Remove(random);
         }
     }
 
@@ -52,18 +53,21 @@ public class Game : MonoBehaviour
     {
         // gameUsedAnimalsから、2種類を選択して、generatedChimeraNameに追加する
 
+
         // とりあえずは、ランダムに生成する
         for (int i=0; i<numChimera; i++)
         {
             // FirstCharacterを取得するAnimal
             int randomFirst = Random.Range(0, gameUsedAnimals.Count);
             Animal firstAnimal = gameUsedAnimals[randomFirst];
-            
+            gameUsedAnimals.Remove(firstAnimal); // 選択したら削除
 
             // LastCharacterを取得するAnimal
             int randomLast = Random.Range(0, gameUsedAnimals.Count);
             Animal lastAnimal = gameUsedAnimals[randomLast];
-            
+            gameUsedAnimals.Remove(lastAnimal); // 選択したら削除
+
+
 
             // {first, last} Animalから文字を取得してanswerChimeraNamesに追加する
             string firstChar = firstAnimal.GetFirstCharacter().ToString();
@@ -72,9 +76,7 @@ public class Game : MonoBehaviour
             // answerChimeraNamesに解を追加
             answerChimeraNames.Add(firstChar + lastChar);
 
-            // Answer生成に使ったAnimalはリストから削除
-            gameUsedAnimals.RemoveAt(randomFirst);
-            gameUsedAnimals.RemoveAt(randomLast);
+            
         }
     }
 
