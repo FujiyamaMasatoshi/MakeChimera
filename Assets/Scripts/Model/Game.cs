@@ -12,6 +12,12 @@ public class Game : MonoBehaviour
     public List<Animal> gameUsedAnimals = new List<Animal>(); // ゲームで使用されるAnimalsを保持するリスト
     public List<string> answerChimeraNames = new List<string>(); // ゲームの答えとして用意されたChimeraの名前
 
+    // 選択されたAnimals
+    private Animal firstAnimal;
+    private Animal lastAnimal;
+    // 生成されたキメラの名前
+    public string generatedChimeraName = "";
+
 
     private void Start()
     {
@@ -26,15 +32,60 @@ public class Game : MonoBehaviour
         answerChimeraNames.Clear();
 
         // ゲーム情報の生成
-        SelectRandomAnimals();
+        SelectGameUsedAnimals();
         // 答えの生成
         MakeAnswer();
 
     }
 
 
+    // 左側を選択するAnimalをセット
+    public void SetFirstAnimal(Animal animal)
+    {
+        
+        firstAnimal = animal;
+
+        // gameUsedAnimalsから削除
+        // * 多分、ドラッグアンドドロップで選択した時、同じゲームオブジェクトを参照しているので、同じメモリ上に保持されている -> Remove()使えると思う
+        // * 使えない場合は、別の方法でgameUsedAnimalsから削除する
+        gameUsedAnimals.Remove(animal);
+    }
+
+    // 右側を選択するAnimalをセット
+    public void SetLastAnimal(Animal animal)
+    {
+        lastAnimal = animal;
+        // gameUsedAnimalsから削除
+        // * 多分、ドラッグアンドドロップで選択した時、同じゲームオブジェクトを参照しているので、同じメモリ上に保持されている -> Remove()使えると思う
+        // * 使えない場合は、別の方法でgameUsedAnimalsから削除する
+        gameUsedAnimals.Remove(animal);
+    }
+
+    // rightAnimalとleftAnimalがnullでないならば、キメラの名前を生成
+    // 選択されたAnimalをgameUsedAnimalから削除
+    public void GenerateChimeraName()
+    {
+        if (firstAnimal != null && lastAnimal != null)
+        {
+            string firstChara = firstAnimal.GetFirstCharacter().ToString();
+            string lastChara = lastAnimal.GetLastCharacter().ToString();
+            generatedChimeraName = firstChara + lastChara;
+
+            // 選択したAnimalをnullにする
+            firstAnimal = null;
+            lastAnimal = null;
+        }
+    }
+
+    // 選択された2つのAnimalからChimeraを生成する
+    public void CheckAnswer()
+    {
+
+    }
+
+
     // numChimera*2の数だけゲームで使用するAnimalのリストに追加する
-    private void SelectRandomAnimals()
+    private void SelectGameUsedAnimals()
     {
         // アニマルIDから、ランダムにAnimalを選択するtempListを生成
         List<int> animalID = new List<int>();
@@ -48,6 +99,7 @@ public class Game : MonoBehaviour
             animalID.Remove(random);
         }
     }
+
 
     // 答えとなる組み合わせを生成する
     private void MakeAnswer()
