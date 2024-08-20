@@ -126,6 +126,7 @@ MonoBehaviour:
   lastImage: {fileID: 0}
   defaultScale: 1
   defaultRotation: 0
+  destroyTime: 1.5
 --- !u!1 &6837165130282369936
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +164,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 12, y: 12}
+  m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6423519029012878257
 Canvas:

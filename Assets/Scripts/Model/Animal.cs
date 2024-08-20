@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class Animal : MonoBehaviour
 {
-    public string japaneseName = "　　";
-    public Image firstImage;
-    public Image lastImage;
-    public float defaultScale;
-    public float defaultRotation;
+    [SerializeField] private string japaneseName = "　　";
+    [SerializeField] private Image firstImage;
+    [SerializeField] private Image lastImage;
+    [SerializeField] private float defaultScale;
+    [SerializeField] private float defaultRotation;
+    [SerializeField] private float destroyTime;
 
 
     // 先頭文字を取得
@@ -89,7 +90,7 @@ public class Animal : MonoBehaviour
     // 自己破壊処理
     public void DestroySelf()
     {
-        Destroy(this.gameObject, 1.0f);
+        Destroy(this.gameObject, destroyTime);
     }
 
     // テスト

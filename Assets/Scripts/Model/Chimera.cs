@@ -5,13 +5,19 @@ using UnityEngine.UI;
 
 public class Chimera : MonoBehaviour
 {
-    [SerializeField] Canvas canvas;
-    public string japaneseName = "";
-    public Image firstImage = null;
-    public Image lastImage = null;
+    [SerializeField] private Canvas canvas;
+    [SerializeField] private string japaneseName = "";
+    [SerializeField] private Image firstImage = null;
+    [SerializeField] private Image lastImage = null;
 
-    public float defaultScale;
-    public float defaultRotation;
+    [SerializeField] private float defaultScale;
+    [SerializeField] private float defaultRotation;
+    [SerializeField] private float destroyTime;
+
+    public string GetName()
+    {
+        return japaneseName;
+    }
 
     // Animal 2つからキメラを初期化、奪い取った部分は元のAnimalから削除
     public void MakeChimera(Animal firstAnimal, Animal lastAnimal)
@@ -49,6 +55,9 @@ public class Chimera : MonoBehaviour
     {
         RectTransform rectTransform = image.GetComponent<RectTransform>();
 
+        // 回転を戻す
+        rectTransform.rotation = Quaternion.identity;
+
         // AnchorをStretchに設定
         rectTransform.anchorMin = new Vector2(0, 0); // 左下
         rectTransform.anchorMax = new Vector2(1, 1); // 右上
@@ -73,6 +82,6 @@ public class Chimera : MonoBehaviour
 
     public void DestroySelf()
     {
-        Destroy(this, 3f);
+        Destroy(this.gameObject, destroyTime);
     }
 }

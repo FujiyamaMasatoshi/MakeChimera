@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class Generator : MonoBehaviour
 {
     [SerializeField] private Game game = null;
-    [SerializeField] private GenerateList generateList = null;
     [SerializeField] private Chimera chimera;
     [SerializeField] private GameObject generatePlace;
+
+    private Chimera generatedChimera = null;
 
     // 生成装置の左右に空きがなければTrue
     public bool CheckGeneratable()
@@ -19,29 +20,20 @@ public class Generator : MonoBehaviour
     public void GenerateChimera()
     {
         // キメラを生成する
-        Chimera generatedChimera = Instantiate(chimera, generatePlace.transform.position, Quaternion.identity);
+        generatedChimera = Instantiate(chimera, generatePlace.transform.position, Quaternion.identity);
         generatedChimera.MakeChimera(game.GetFirstAnimal(), game.GetLastAnimal());
 
-        // game.generatedChimeraNameを""にする
-        //game.ClearGeneratedChimeraName();
-
-        // キメラ生成
-        //game.GenerateChimeraName();
-        
-
-        // 答えの確認
+        // Gameに生成した内容を反映する
+        game.SetChimeraName(generatedChimera.GetName());
         game.CheckAnswer();
+    }
 
-        // アンサーリストUIの更新
-        generateList.SetAnswerList();
+    // GameのfirstAnimal,lastAnimalの削除　と generatedChimeraの削除
+    public void DestroyAnimalsAndChimera()
+    {
+        // Animalsの後処理はGameがやってる、あとで処理をここに移したい
+        game.ClearAnimals();
 
-        // もし、生成したAnimalを全て合成して、0になったら
-        // ゲームをリセットして再度スタート
-        if (game.gameUsedAnimals.Count == 0)
-        {
-            // ゲームの初期化
-            game.InitGame();
-            generateList.SetAnswerList();
-        }
+        generatedChimera.DestroySelf();
     }
 }
