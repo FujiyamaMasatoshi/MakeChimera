@@ -10,7 +10,7 @@ public class GenerateList : MonoBehaviour
     [SerializeField, Header("解が生成されたかどうか")] private List<TextMeshProUGUI> isGeneratedList = new List<TextMeshProUGUI>();
 
 
-    private void SetAnswerList()
+    public void SetAnswerList()
     {
         // キメラnameをセット
         int i = 0;
@@ -32,7 +32,7 @@ public class GenerateList : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SetAnswerList();
     }
 
     // Update is called once per frame
