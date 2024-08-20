@@ -973,6 +973,7 @@ GameObject:
   - component: {fileID: 835736169}
   - component: {fileID: 835736168}
   - component: {fileID: 835736167}
+  - component: {fileID: 835736171}
   m_Layer: 10
   m_Name: generateButton
   m_TagString: Untagged
@@ -1012,6 +1013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   game: {fileID: 1906582070}
+  generator: {fileID: 835736171}
   generateList: {fileID: 1351756152}
 --- !u!114 &835736168
 MonoBehaviour:
@@ -1059,7 +1061,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 835736167}
         m_TargetAssemblyTypeName: GenerateButton, Assembly-CSharp
-        m_MethodName: StartGenerateChimera
+        m_MethodName: TryGenerateChimera
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1107,6 +1109,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835736165}
   m_CullTransparentMesh: 1
+--- !u!114 &835736171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835736165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 551376eda4f7b304bba0037c701e1b79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game: {fileID: 1906582070}
+  chimera: {fileID: 1225701322654722865, guid: 4f207ae42ef8d214486d75e224cf3519, type: 3}
+  generatePlace: {fileID: 67966308}
 --- !u!1 &864511794
 GameObject:
   m_ObjectHideFlags: 0
@@ -2619,8 +2636,6 @@ MonoBehaviour:
   collect4: 4
   collectAll: 5
   gameUsedAnimals: []
-  firstAnimal: {fileID: 0}
-  lastAnimal: {fileID: 0}
   generatedChimeraName: 
 --- !u!4 &1906582071
 Transform:
