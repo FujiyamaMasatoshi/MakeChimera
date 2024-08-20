@@ -6,7 +6,6 @@ public class Select : MonoBehaviour
 { 
     private Vector3 offset;  // マウスの位置とオブジェクトの位置との差分
     private bool isDrag = false;  // ドラッグ可能か
-    private string animalTag = "Animal";
     
     // Start is called before the first frame update
     void Start()
@@ -66,7 +65,7 @@ public class Select : MonoBehaviour
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
 
-        if (hit.collider != null && hit.collider.tag == animalTag)
+        if (hit.collider != null && hit.collider.transform.position == transform.position)
         {
             return true;
         }
