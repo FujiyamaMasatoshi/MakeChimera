@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Select : MonoBehaviour
-{ 
+{
+    [Header("芝の座標")] public float greenRegion;
+
     private Vector3 offset;  // マウスの位置とオブジェクトの位置との差分
+    private Vector3 previousPosition = Vector3.zero;
     private bool isDrag = false;  // ドラッグ可能か
     
     // Start is called before the first frame update
@@ -36,6 +39,7 @@ public class Select : MonoBehaviour
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         offset = transform.position - mousePosition;
+        previousPosition = transform.position;
 
         if (IsMouseOnAnimal())
         {
@@ -57,6 +61,11 @@ public class Select : MonoBehaviour
     void MouseUp()
     {
         isDrag = false;
+        
+        if (transform.position.y >= greenRegion)
+        {
+            transform.position = previousPosition;
+        }
     }
 
     // マウスが動物の上にあるかどうか
