@@ -9,7 +9,6 @@ public class Box : MonoBehaviour
     private Animal animal = null;
     private Animal inBoxAnimal = null;
     private Select select = null;
-    private bool isSet = false;  // セット可能か
     private string animalTag = "Animal";
 
     // Start is called before the first frame update
@@ -21,7 +20,7 @@ public class Box : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     // 動物との接触時の処理
@@ -37,12 +36,10 @@ public class Box : MonoBehaviour
 
         if (inBoxAnimal == null)
         {
-            inBoxAnimal = animal;
-            isSet = true;
             select.SetIsSet(true);
         }
 
-        if (isSet && !select.GetIsDrag())
+        if (!select.GetIsDrag())
         {
             if (isFirstBox)
             {
@@ -53,7 +50,7 @@ public class Box : MonoBehaviour
                 game.SetLastAnimal(animal);
             }
 
-            isSet = false;
+            inBoxAnimal = animal;
         }
     }
 
