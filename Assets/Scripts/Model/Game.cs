@@ -13,8 +13,8 @@ public class Game : MonoBehaviour
     public List<string> answerChimeraNames = new List<string>(); // ゲームの答えとして用意されたChimeraの名前
 
     // 選択されたAnimals
-    private Animal firstAnimal;
-    private Animal lastAnimal;
+    public Animal firstAnimal;
+    public Animal lastAnimal;
     // 生成されたキメラの名前
     public string generatedChimeraName = "";
 
@@ -44,21 +44,13 @@ public class Game : MonoBehaviour
     {
         
         firstAnimal = animal;
-
-        // gameUsedAnimalsから削除
-        // * 多分、ドラッグアンドドロップで選択した時、同じゲームオブジェクトを参照しているので、同じメモリ上に保持されている -> Remove()使えると思う
-        // * 使えない場合は、別の方法でgameUsedAnimalsから削除する
-        gameUsedAnimals.Remove(animal);
     }
 
     // 右側を選択するAnimalをセット
     public void SetLastAnimal(Animal animal)
     {
         lastAnimal = animal;
-        // gameUsedAnimalsから削除
-        // * 多分、ドラッグアンドドロップで選択した時、同じゲームオブジェクトを参照しているので、同じメモリ上に保持されている -> Remove()使えると思う
-        // * 使えない場合は、別の方法でgameUsedAnimalsから削除する
-        gameUsedAnimals.Remove(animal);
+        
     }
 
     // rightAnimalとleftAnimalがnullでないならば、キメラの名前を生成
@@ -71,6 +63,11 @@ public class Game : MonoBehaviour
             string lastChara = lastAnimal.GetLastCharacter().ToString();
             generatedChimeraName = firstChara + lastChara;
 
+
+            // 選択されたAnimalをgameUsedAnimalsから削除する
+            RemoveAnimalFromList(firstAnimal);
+            RemoveAnimalFromList(lastAnimal);
+
             // 選択したAnimalをnullにする
             firstAnimal = null;
             lastAnimal = null;
@@ -80,9 +77,34 @@ public class Game : MonoBehaviour
     // 選択された2つのAnimalからChimeraを生成する
     public void CheckAnswer()
     {
-
+        // answerChimeraNamesからgeneratedChimeraNameを探索して、同じものがあるかをチェックする
+        if (generatedChimeraName != "")
+        {
+            foreach (string chimeraName in answerChimeraNames)
+            {
+                if (chimeraName.Equals(generatedChimeraName))
+                {
+                    Debug.Log("生成されたキメラは解です。");
+                    return;
+                }
+            }
+            Debug.Log("それは解ではありません。");
+        }
     }
 
+
+    // 引数にとったAnimalをgameUsedAnimalsから削除する
+    private void RemoveAnimalFromList(Animal selectedAnimal)
+    {
+        foreach(Animal animal in gameUsedAnimals)
+        {
+            if (animal.japaneseName.Equals(selectedAnimal.japaneseName))
+            {
+                gameUsedAnimals.Remove(animal);
+                return;
+            }
+        }
+    }
 
     // numChimera*2の数だけゲームで使用するAnimalのリストに追加する
     private void SelectGameUsedAnimals()
@@ -131,10 +153,16 @@ public class Game : MonoBehaviour
             // answerChimeraNamesに解を追加
             answerChimeraNames.Add(firstChar + lastChar);
 
-            
         }
     }
 
-
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            //CheckAnswer(); // -> 動く
+            //GenerateChimeraName(); // -> 動く
+        }
+    }
 
 }
