@@ -403,51 +403,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce606934a9728c7438c9d830e83cc2db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &331142178
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 331142180}
-  - component: {fileID: 331142179}
-  m_Layer: 0
-  m_Name: AnimalPlacer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &331142179
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331142178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01408aa908a574d2cb764143dfb02af2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  game: {fileID: 1906582070}
---- !u!4 &331142180
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331142178}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3693889, y: -2.1977043, z: 1045.3817}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &578748781
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,6 +816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   game: {fileID: 1906582070}
+  generateList: {fileID: 1351756152}
 --- !u!114 &835736168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1930,8 +1886,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   game: {fileID: 1906582070}
-  generateList: []
-  isGeneratedList: []
+  generateList:
+  - {fileID: 788732864}
+  - {fileID: 1570108918}
+  - {fileID: 227733398}
+  - {fileID: 1432699235}
+  - {fileID: 673929707}
+  isGeneratedList:
+  - {fileID: 1765227552}
+  - {fileID: 1416727492}
+  - {fileID: 1745008165}
+  - {fileID: 1374819814}
+  - {fileID: 1179608726}
 --- !u!1 &1374819812
 GameObject:
   m_ObjectHideFlags: 0
@@ -2916,6 +2882,11 @@ MonoBehaviour:
   - {fileID: 6582597877116072377, guid: feac050cda5de4f60b05877c1fd05e3c, type: 3}
   - {fileID: 4792362551706023802, guid: 2ca1fa0bb9dd54f21ac2f4ded862f2b3, type: 3}
   numChimera: 2
+  collect1: 1
+  collect2: 2
+  collect3: 3
+  collect4: 4
+  collectAll: 5
   gameUsedAnimals: []
   firstAnimal: {fileID: 0}
   lastAnimal: {fileID: 0}
@@ -2943,4 +2914,3 @@ SceneRoots:
   - {fileID: 1270564133}
   - {fileID: 1571866135}
   - {fileID: 1906582071}
-  - {fileID: 331142180}

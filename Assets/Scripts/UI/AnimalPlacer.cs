@@ -5,7 +5,7 @@ using UnityEngine;
 public class AnimalPlacer : MonoBehaviour
 {
     [SerializeField] private Game game = null;
-
+    public List<Animal> generatedAnimals = new List<Animal>();
 
     private void Start()
     {
@@ -20,7 +20,8 @@ public class AnimalPlacer : MonoBehaviour
         {
             Animal animal = game.gameUsedAnimals[i];
             Instantiate(animal, new Vector3(i, -1f, 0f), Quaternion.identity);
-            
+            generatedAnimals.Add(animal);
         }
     }
+
 }

@@ -8,9 +8,18 @@ public class Game : MonoBehaviour
     
     [SerializeField, Header("キメラを生成する数")] private int numChimera = 5;
 
-    
+    [SerializeField] private int collect1 = 1;
+    [SerializeField] private int collect2 = 2;
+    [SerializeField] private int collect3 = 3;
+    [SerializeField] private int collect4 = 4;
+    [SerializeField] private int collectAll = 5;
+    private int oneSetScore = 0; // 1フェーズごとのスコア -> GameManagerでトータルスコアを管理
+    private int numCollect = 0; // 正解数
+
+
+
     public List<Animal> gameUsedAnimals = new List<Animal>(); // ゲームで使用されるAnimalsを保持するリスト
-    //public List<string> answerChimeraNames = new List<string>(); // ゲームの答えとして用意されたChimeraの名前
+    
     public Dictionary<string, bool> answerChimeraNames = new Dictionary<string, bool>();
 
     // 選択されたAnimals
@@ -21,10 +30,10 @@ public class Game : MonoBehaviour
     public string generatedChimeraName = "";
 
 
-    //private void Start()
-    //{
-    //    InitGame();
-    //}
+    private void Start()
+    {
+        InitGame();
+    }
 
     // ゲーム開始時に呼ぶ初期化メソッド
     public void InitGame()
@@ -37,6 +46,9 @@ public class Game : MonoBehaviour
         SelectGameUsedAnimals();
         // 答えの生成
         MakeAnswer();
+
+        // スコアの初期化
+        oneSetScore = 0;
 
     }
 
@@ -73,6 +85,12 @@ public class Game : MonoBehaviour
             // 選択したAnimalをnullにする
             firstAnimal = null;
             lastAnimal = null;
+
+
+            // もし、生成したAnimalを全て合成して、0になったら
+            // ゲームをリセットして再度スタート
+            if (gameUsedAnimals.Count == 0) InitGame();
+            
         }
     }
 
@@ -87,6 +105,10 @@ public class Game : MonoBehaviour
                 if (chimeraName.Equals(generatedChimeraName))
                 {
                     Debug.Log("生成されたキメラは解です。");
+
+                    // 正解数++
+                    numCollect++;
+                    ComputeScore();
                     return;
                 }
             }
@@ -103,6 +125,7 @@ public class Game : MonoBehaviour
             if (animal.japaneseName.Equals(selectedAnimal.japaneseName))
             {
                 gameUsedAnimals.Remove(animal);
+                Destroy(animal.gameObject);
                 return;
             }
         }
@@ -119,9 +142,14 @@ public class Game : MonoBehaviour
         for (int i = 0; i<numChimera*2; i++)
         {
             int random = animalID[Random.Range(0, animalID.Count)];
-            gameUsedAnimals.Add(animals[random]);
+
+            Animal animal = Instantiate(animals[random], new Vector3(i, -1f, 0f), Quaternion.identity);
+            gameUsedAnimals.Add(animal);
+
+            // IDの削除
             animalID.Remove(random);
         }
+
     }
 
 
@@ -153,11 +181,21 @@ public class Game : MonoBehaviour
             string lastChar = lastAnimal.GetLastCharacter().ToString();
 
             // answerChimeraNamesに解を追加
-            //answerChimeraNames.Add(firstChar + lastChar);
             answerChimeraNames.Add(firstChar + lastChar, false);
             
 
         }
+    }
+
+
+    private void ComputeScore()
+    {
+        if (numCollect == 1) oneSetScore += collect1;
+        else if (numCollect == 2) oneSetScore += collect2;
+        else if (numCollect == 3) oneSetScore += collect3;
+        else if (numCollect == 4) oneSetScore += collect4;
+        else if (numCollect == 5) oneSetScore += collectAll;
+
     }
 
     private void Update()
@@ -165,7 +203,7 @@ public class Game : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //CheckAnswer(); // -> 動く
-            GenerateChimeraName(); // -> 動く
+            //GenerateChimeraName(); // -> 動く
         }
     }
 
