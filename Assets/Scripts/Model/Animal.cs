@@ -25,6 +25,18 @@ public class Animal : MonoBehaviour
         return lastCharacter;
     }
 
+    // 上半身の画像を取得
+    public Image GetFirstImage()
+    {
+        return firstImage;
+    }
+
+    // 下半身の画像を取得
+    public Image GetLastImage()
+    {
+        return lastImage;
+    }
+
     // 縮尺と回転を初期状態に設定
     private void SetScaleRotation()
     {

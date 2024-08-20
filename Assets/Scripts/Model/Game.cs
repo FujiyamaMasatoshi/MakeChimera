@@ -64,6 +64,19 @@ public class Game : MonoBehaviour
         
     }
 
+    // 左側を選択する　Animal を渡す
+    public Animal GetFirstAnimal()
+    {
+        return firstAnimal;
+    }
+
+    // 右側を選択する　Animal を渡す
+    public Animal GetLastAnimal()
+    {
+        return lastAnimal;
+    }
+
+
     // rightAnimalとleftAnimalがnullでないならば、キメラの名前を生成
     // 選択されたAnimalをgameUsedAnimalから削除
     public void GenerateChimeraName()

@@ -6,6 +6,7 @@ public class GenerateButton : MonoBehaviour
 {
     [SerializeField] private Game game = null;
     [SerializeField] private GenerateList generateList = null;
+    [SerializeField] private Chimera chimera;
 
     public void StartGenerateChimera()
     {
@@ -14,6 +15,8 @@ public class GenerateButton : MonoBehaviour
 
         // キメラ生成
         game.GenerateChimeraName();
+        Instantiate(chimera).Initialize(game.)
+        
 
         // 答えの確認
         game.CheckAnswer();
