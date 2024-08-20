@@ -10,7 +10,8 @@ public class Game : MonoBehaviour
 
     
     public List<Animal> gameUsedAnimals = new List<Animal>(); // ゲームで使用されるAnimalsを保持するリスト
-    public List<string> answerChimeraNames = new List<string>(); // ゲームの答えとして用意されたChimeraの名前
+    //public List<string> answerChimeraNames = new List<string>(); // ゲームの答えとして用意されたChimeraの名前
+    public Dictionary<string, bool> answerChimeraNames = new Dictionary<string, bool>();
 
     // 選択されたAnimals
     public Animal firstAnimal; // あとでprivateにする
@@ -20,10 +21,10 @@ public class Game : MonoBehaviour
     public string generatedChimeraName = "";
 
 
-    private void Start()
-    {
-        InitGame();
-    }
+    //private void Start()
+    //{
+    //    InitGame();
+    //}
 
     // ゲーム開始時に呼ぶ初期化メソッド
     public void InitGame()
@@ -81,7 +82,7 @@ public class Game : MonoBehaviour
         // answerChimeraNamesからgeneratedChimeraNameを探索して、同じものがあるかをチェックする
         if (generatedChimeraName != "")
         {
-            foreach (string chimeraName in answerChimeraNames)
+            foreach (string chimeraName in answerChimeraNames.Keys)
             {
                 if (chimeraName.Equals(generatedChimeraName))
                 {
@@ -152,7 +153,9 @@ public class Game : MonoBehaviour
             string lastChar = lastAnimal.GetLastCharacter().ToString();
 
             // answerChimeraNamesに解を追加
-            answerChimeraNames.Add(firstChar + lastChar);
+            //answerChimeraNames.Add(firstChar + lastChar);
+            answerChimeraNames.Add(firstChar + lastChar, false);
+            
 
         }
     }
