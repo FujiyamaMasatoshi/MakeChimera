@@ -35,6 +35,7 @@ public class SManager : MonoBehaviour
         seSource.volume = SE_Volume;
         bgmSource.volume = BGM_Volume;
         SetBGM(0);
+        StartBGM();
     }
 
     void Update()
