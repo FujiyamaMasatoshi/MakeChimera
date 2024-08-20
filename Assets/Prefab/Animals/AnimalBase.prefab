@@ -85,6 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 164779887004470983}
   - component: {fileID: 3873860790228395654}
+  - component: {fileID: 1200098551550570576}
   m_Layer: 0
   m_Name: AnimalBase
   m_TagString: Untagged
@@ -125,6 +126,18 @@ MonoBehaviour:
   lastImage: {fileID: 1025290435842137788}
   defaultScale: 1
   defaultRotation: 0
+--- !u!114 &1200098551550570576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2234254701016354373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9348ed316dc50614196d8e42e3f6c8a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7825774696084116761
 GameObject:
   m_ObjectHideFlags: 0
