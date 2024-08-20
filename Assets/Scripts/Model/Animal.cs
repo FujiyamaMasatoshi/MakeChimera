@@ -47,6 +47,12 @@ public class Animal : MonoBehaviour
         transform.eulerAngles = currentRotation;
     }
 
+    // 自己破壊処理
+    public void DestroySelf()
+    {
+        Destroy(this.gameObject, 1.0f);
+    }
+
     // テスト
     private void Test()
     {

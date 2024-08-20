@@ -152,7 +152,7 @@ public class Game : MonoBehaviour
             if (animal.japaneseName.Equals(selectedAnimal.japaneseName))
             {
                 gameUsedAnimals.Remove(animal);
-                Destroy(animal.gameObject);
+                animal.DestroySelf();
                 return;
             }
         }
