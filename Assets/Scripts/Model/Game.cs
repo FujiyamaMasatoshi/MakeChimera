@@ -22,8 +22,8 @@ public class Game : MonoBehaviour
     public Dictionary<string, bool> answerChimeraNames = new Dictionary<string, bool>();
 
     // 選択されたAnimals
-    public Animal firstAnimal; // あとでprivateにする
-    public Animal lastAnimal; // あとでprivateにする
+    private Animal firstAnimal; // あとでprivateにする
+    private Animal lastAnimal; // あとでprivateにする
 
     // 生成されたキメラの名前
     public string generatedChimeraName = "";
@@ -45,6 +45,7 @@ public class Game : MonoBehaviour
 
     }
 
+    // 
     public void ClearGeneratedChimeraName()
     {
         generatedChimeraName = "";
@@ -53,7 +54,6 @@ public class Game : MonoBehaviour
     // 左側を選択するAnimalをセット
     public void SetFirstAnimal(Animal animal)
     {
-        
         firstAnimal = animal;
     }
 
@@ -61,7 +61,6 @@ public class Game : MonoBehaviour
     public void SetLastAnimal(Animal animal)
     {
         lastAnimal = animal;
-        
     }
 
     // 左側を選択する　Animal を渡す

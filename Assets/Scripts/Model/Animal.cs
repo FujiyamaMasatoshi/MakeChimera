@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class Animal : MonoBehaviour
 {
-    public string japaneseName = "";
+    public string japaneseName = "　　";
     public Image firstImage;
     public Image lastImage;
     public float defaultScale;
     public float defaultRotation;
+
 
     // 先頭文字を取得
     public char GetFirstCharacter()
@@ -25,17 +26,55 @@ public class Animal : MonoBehaviour
         return lastCharacter;
     }
 
-    // 上半身の画像を取得
+    // 先頭画像を取得
     public Image GetFirstImage()
     {
         return firstImage;
     }
 
-    // 下半身の画像を取得
+    // 末尾画像を取得
     public Image GetLastImage()
     {
         return lastImage;
     }
+
+    // 初期スケールを取得
+    public float GetDefaultScale()
+    {
+        return defaultScale;
+    }
+
+    // 初期回転を取得
+    public float GetDefaultRotation()
+    {
+        return defaultRotation;
+    }
+
+
+    // 先頭文字を全角空白にする。
+    public void ClearFirstCharacter()
+    {
+        japaneseName = "　"+japaneseName[1];
+    }
+
+    // 末尾文字を全角空白にする。
+    public void ClearLastCharacter()
+    {
+        japaneseName = japaneseName[0]+"　";
+    }
+
+    // 先頭画像を削除
+    public void ClearFirstImage()
+    {
+        firstImage = null;
+    }
+
+    // 末尾画像を削除
+    public void ClearLastImage()
+    {
+        lastImage = null;
+    }
+
 
     // 縮尺と回転を初期状態に設定
     private void SetScaleRotation()
