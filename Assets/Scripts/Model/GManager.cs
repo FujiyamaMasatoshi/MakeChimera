@@ -6,8 +6,10 @@ public class GManager : MonoBehaviour
 {
     public static GManager instance = null;
     [Header("スコア")] public int score;
+    [Header("制限時間")] public float limitTime = 60;
     [HideInInspector] public bool isTimeAdvance = false;  // 時間が経過するかどうか
-    [HideInInspector] public float gameTime = 0.0f;  // 経過時間
+    [HideInInspector] public float gameTime = 0.0f;  // 経過時間 -> StageManagerで進める
+    
 
     private void Awake()
     {

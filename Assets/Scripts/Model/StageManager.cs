@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
@@ -17,9 +18,18 @@ public class StageManager : MonoBehaviour
         generateList.SetAnswerList();
     }
 
+
+
     // Update is called once per frame
     void Update()
     {
-        //
+        // ゲームタイムを進める
+        GManager.instance.gameTime += Time.deltaTime;
+
+        // 時間オーバーしたら、
+        if (GManager.instance.gameTime > GManager.instance.limitTime)
+        {
+            SceneManager.LoadScene("Result");
+        }
     }
 }
