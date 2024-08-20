@@ -13,8 +13,9 @@ public class Game : MonoBehaviour
     public List<string> answerChimeraNames = new List<string>(); // ゲームの答えとして用意されたChimeraの名前
 
     // 選択されたAnimals
-    public Animal firstAnimal;
-    public Animal lastAnimal;
+    public Animal firstAnimal; // あとでprivateにする
+    public Animal lastAnimal; // あとでprivateにする
+
     // 生成されたキメラの名前
     public string generatedChimeraName = "";
 
@@ -161,7 +162,7 @@ public class Game : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //CheckAnswer(); // -> 動く
-            //GenerateChimeraName(); // -> 動く
+            GenerateChimeraName(); // -> 動く
         }
     }
 
