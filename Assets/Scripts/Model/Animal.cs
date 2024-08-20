@@ -12,6 +12,8 @@ public class Animal : MonoBehaviour
     [SerializeField] private float defaultRotation;
     [SerializeField] private float destroyTime;
 
+    public AudioClip voice;
+
 
     // 先頭文字を取得
     public char GetFirstCharacter()

@@ -61,6 +61,10 @@ PrefabInstance:
       value: Animal0 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 3873860790228395654, guid: c0ee8103d7927d64dbdfe8f6bd313d80, type: 3}
+      propertyPath: voice
+      value: 
+      objectReference: {fileID: 8300000, guid: d9d792836d535496ea0f59086308d193, type: 3}
+    - target: {fileID: 3873860790228395654, guid: c0ee8103d7927d64dbdfe8f6bd313d80, type: 3}
       propertyPath: japaneseName
       value: "\u30A6\u30B7"
       objectReference: {fileID: 0}
