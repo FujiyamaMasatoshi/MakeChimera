@@ -6,11 +6,19 @@ public class AnimalPlacer : MonoBehaviour
 {
     [SerializeField] private Game game = null;
 
+
+    private void Start()
+    {
+        game.InitGame();
+        GenerateAnimalObj();
+    }
+
     public void GenerateAnimalObj()
     {
         foreach(Animal animal in game.gameUsedAnimals)
         {
-            Instantiate<Animal>(animal, new Vector3(0f, 0f, 0f), Quaternion.identity);
+            Instantiate(animal, new Vector3(0f, 0f, 0f), Quaternion.identity);
+            
         }
     }
 }
