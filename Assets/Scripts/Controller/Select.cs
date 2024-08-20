@@ -61,4 +61,9 @@ public class Select : MonoBehaviour
     {
         isDrag = false;
     }
+
+    public bool GetIsDrag()
+    {
+        return isDrag;
+    }
 }

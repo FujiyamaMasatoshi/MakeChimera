@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Box : MonoBehaviour
 {
-    [Header("左のボックスか")] public bool isFirstBox;
+    [Header("左のボックスかどうか")] public bool isFirstBox;
     [SerializeField] private Game game = null;
     private Animal animal = null;
+    private Select select = null;
     private string animalTag = "Animal";
 
     // Start is called before the first frame update
     void Start()
     {
-        // コンポーネントのインスタンスを捕まえる
-        //game = transform.parent.GetComponent<Game>();
+
     }
 
     // Update is called once per frame
@@ -22,13 +22,19 @@ public class Box : MonoBehaviour
         
     }
 
-    // 動物との衝突判定
-    private void OnTriggerEnter2D(Collider2D collision)
+    // 動物との接触時の処理
+    void AnimalTrigger(Collider2D collision)
     {
-        Debug.Log("衝突");
-        if (collision.tag == animalTag)
+        if (game == null)
         {
-            animal = collision.gameObject.GetComponent<Animal>();
+            return;
+        }
+
+        animal = collision.gameObject.GetComponent<Animal>();
+        select = collision.gameObject.GetComponent<Select>();
+
+        if (!select.GetIsDrag())
+        {
             if (isFirstBox)
             {
                 game.SetFirstAnimal(animal);
@@ -37,6 +43,24 @@ public class Box : MonoBehaviour
             {
                 game.SetLastAnimal(animal);
             }
+        }
+    }
+
+    // 動物の衝突判定
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == animalTag)
+        {
+            AnimalTrigger(collision);
+        }
+    }
+
+    // 動物の侵入判定
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == animalTag)
+        {
+            AnimalTrigger(collision);
         }
     }
 }
