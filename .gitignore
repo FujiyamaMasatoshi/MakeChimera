@@ -77,3 +77,4 @@ Assets/TextMesh Pro/JapaneseFonts
 test*
 Exe
 .vscode
+*.editorconfig
