@@ -1,34 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class GenerateButton : MonoBehaviour
 {
     [SerializeField] private Game game = null;
+    [SerializeField] private Generator generator = null;
     [SerializeField] private GenerateList generateList = null;
 
-    public void StartGenerateChimera()
+    // Chimeraを作れるなら作り、その後必要な処理を呼び出す。
+    public void TryGenerateChimera()
     {
-        // game.generatedChimeraNameを""にする
-        game.ClearGeneratedChimeraName();
-
-        // キメラ生成
-        game.GenerateChimeraName();
-
-        // 答えの確認
-        game.CheckAnswer();
-
-
-        // アンサーリストUIの更新
-        generateList.SetAnswerList();
-
-        // もし、生成したAnimalを全て合成して、0になったら
-        // ゲームをリセットして再度スタート
-        if (game.gameUsedAnimals.Count == 0)
+        if(generator.CheckGeneratable())
         {
-            // ゲームの初期化
-            game.InitGame();
+            Debug.Log("Generation Successed");
+
+            // キメラ生成
+            generator.GenerateChimera();
+
+            // アンサーリストUIの更新
             generateList.SetAnswerList();
+
+            // 使ったアニマルとキメラの破壊
+            generator.DestroyAnimalsAndChimera();
+
+            // ステージ終了なら初期化
+            if(game.CheckStageEnd())
+            {
+                game.InitGame();
+                generateList.SetAnswerList();
+            }
+        }
+        else
+        {
+            Debug.Log("Generation Failed");
         }
     }
 }

@@ -16,24 +16,22 @@ public class Game : MonoBehaviour
     //public int oneSetScore = 0; // 1フェーズごとのスコア -> GameManagerでトータルスコアを管理
     private int numCollect = 0; // 正解数
 
-
     public List<Animal> gameUsedAnimals = new List<Animal>(); // ゲームで使用されるAnimalsを保持するリスト
     
     public Dictionary<string, bool> answerChimeraNames = new Dictionary<string, bool>();
 
     // 選択されたAnimals
-    public Animal firstAnimal; // あとでprivateにする
-    public Animal lastAnimal; // あとでprivateにする
+    private Animal firstAnimal;
+    private Animal lastAnimal;
 
     // 生成されたキメラの名前
     public string generatedChimeraName = "";
 
 
 
-    // ゲーム開始時に呼ぶ初期化加するメソッド
+    // ゲーム開始時に呼ぶ初期化するメソッド
     public void InitGame()
     {
-        
         // ゲーム情報の初期化
         gameUsedAnimals.Clear();
         answerChimeraNames.Clear();
@@ -42,18 +40,46 @@ public class Game : MonoBehaviour
         SelectGameUsedAnimals();
         // 答えの生成
         MakeAnswer();
-
     }
 
+    // 今のステージの終了判定
+    public bool CheckStageEnd()
+    {
+        return gameUsedAnimals.Count == 0;
+    }
+
+    // キメラ名を""に変更
     public void ClearGeneratedChimeraName()
     {
         generatedChimeraName = "";
     }
 
+    // キメラ名をセット
+    public void SetChimeraName(string chimeraName)
+    {
+        ClearGeneratedChimeraName();
+        generatedChimeraName = chimeraName;
+    }
+
+    // Animals を削除
+    public void ClearAnimals()
+    {
+        // 選択されたAnimalをgameUsedAnimalsから削除する
+        RemoveAnimalFromList(firstAnimal);
+        RemoveAnimalFromList(lastAnimal);
+
+        // 自己破壊処理を呼び出す
+        firstAnimal.DestroySelf();
+        lastAnimal.DestroySelf();
+
+        // 選択したAnimalをnullにする
+        firstAnimal = null;
+        lastAnimal = null;
+    }
+
     // 左側を選択するAnimalをセット
     public void SetFirstAnimal(Animal animal)
     {
-        
         firstAnimal = animal;
     }
 
@@ -61,32 +87,18 @@ public class Game : MonoBehaviour
     public void SetLastAnimal(Animal animal)
     {
         lastAnimal = animal;
-        
     }
 
-    // rightAnimalとleftAnimalがnullでないならば、キメラの名前を生成
-    // 選択されたAnimalをgameUsedAnimalから削除
-    public void GenerateChimeraName()
+    // 左側を選択する　Animal を渡す
+    public Animal GetFirstAnimal()
     {
-        if (firstAnimal != null && lastAnimal != null)
-        {
-            string firstChara = firstAnimal.GetFirstCharacter().ToString();
-            string lastChara = lastAnimal.GetLastCharacter().ToString();
-            generatedChimeraName = firstChara + lastChara;
+        return firstAnimal;
+    }
 
-
-            // 選択されたAnimalをgameUsedAnimalsから削除する
-            RemoveAnimalFromList(firstAnimal);
-            RemoveAnimalFromList(lastAnimal);
-
-            // 選択したAnimalをnullにする
-            firstAnimal = null;
-            lastAnimal = null;
-
-
-            
-            
-        }
+    // 右側を選択する　Animal を渡す
+    public Animal GetLastAnimal()
+    {
+        return lastAnimal;
     }
 
     // 選択された2つのAnimalからChimeraを生成する
@@ -126,7 +138,6 @@ public class Game : MonoBehaviour
                 answerChimeraNames[generatedChimeraName] = true;
                 break;
             }
-
         }
     }
 
@@ -134,12 +145,12 @@ public class Game : MonoBehaviour
     // 引数にとったAnimalをgameUsedAnimalsから削除する
     private void RemoveAnimalFromList(Animal selectedAnimal)
     {
+        // 参照が同じなら削除
         foreach(Animal animal in gameUsedAnimals)
         {
-            if (animal.japaneseName.Equals(selectedAnimal.japaneseName))
+            if(animal == selectedAnimal)
             {
                 gameUsedAnimals.Remove(animal);
-                Destroy(animal.gameObject);
                 return;
             }
         }
@@ -235,5 +246,4 @@ public class Game : MonoBehaviour
             //GenerateChimeraName(); // -> 動く
         }
     }
-
 }
