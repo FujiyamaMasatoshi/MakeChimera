@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class Select : MonoBehaviour
 { 
-    [Header("ドラッグ有効範囲")] public float dragRange;
-
     private Vector3 offset;  // マウスの位置とオブジェクトの位置との差分
     private bool isDrag = false;  // ドラッグ可能か
+    private string animalTag = "Animal";
     
     // Start is called before the first frame update
     void Start()
@@ -39,8 +37,8 @@ public class Select : MonoBehaviour
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         offset = transform.position - mousePosition;
-        float offsetSize = math.sqrt(offset.x * offset.x + offset.y * offset.y);
-        if (offsetSize < dragRange)
+
+        if (IsMouseOnAnimal())
         {
             isDrag = true;
         }
@@ -60,6 +58,20 @@ public class Select : MonoBehaviour
     void MouseUp()
     {
         isDrag = false;
+    }
+
+    // マウスが動物の上にあるかどうか
+    private bool IsMouseOnAnimal()
+    {
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
+
+        if (hit.collider != null && hit.collider.tag == animalTag)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     public bool GetIsDrag()
