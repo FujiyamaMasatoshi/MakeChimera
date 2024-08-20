@@ -6,9 +6,10 @@ public class Select : MonoBehaviour
 {
     [Header("芝の座標")] public float greenRegion;
 
-    private Vector3 offset;  // マウスの位置とオブジェクトの位置との差分
+    private Vector3 mousePosition = Vector3.zero;  // マウスの位置
+    private Vector3 offset = Vector3.zero;  // マウスの位置とオブジェクトの位置との差分
     private Vector3 previousPosition = Vector3.zero;
-    private bool isDrag = false;  // ドラッグ可能か
+    private bool isDrag = false;  // ドラッグ中か
     private bool isSet = false;  // セット可能か
     
     // Start is called before the first frame update
@@ -20,6 +21,8 @@ public class Select : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
         if (Input.GetMouseButtonDown(0))
         {
             MouseDown();
@@ -38,7 +41,6 @@ public class Select : MonoBehaviour
     // マウスを押したとき
     void MouseDown()
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         offset = transform.position - mousePosition;
         previousPosition = transform.position;
 
@@ -53,7 +55,6 @@ public class Select : MonoBehaviour
     {
         if(isDrag)
         {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = mousePosition + offset;
         }
     }
@@ -72,7 +73,6 @@ public class Select : MonoBehaviour
     // マウスが動物の上にあるかどうか
     private bool IsMouseOnAnimal()
     {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(mousePosition, Vector2.zero);
 
         if (hit.collider != null && hit.collider.transform.position == transform.position)
