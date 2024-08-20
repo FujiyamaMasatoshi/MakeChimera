@@ -7,7 +7,8 @@ public class GenerateList : MonoBehaviour
 {
     [SerializeField] private Game game = null;
     [SerializeField, Header("gameの解リスト")] private List<TextMeshProUGUI> generateList = new List<TextMeshProUGUI>();
-    [SerializeField, Header("解が生成されたかどうか")] private List<TextMeshProUGUI> isGeneratedList = new List<TextMeshProUGUI>();
+    //[SerializeField, Header("解が生成されたかどうか")] private List<TextMeshProUGUI> isGeneratedList = new List<TextMeshProUGUI>();
+    [SerializeField] private List<GameObject> isGeneratedList = new List<GameObject>();
 
 
     public void SetAnswerList()
@@ -24,7 +25,7 @@ public class GenerateList : MonoBehaviour
         i = 0;
         foreach(bool b in game.answerChimeraNames.Values)
         {
-            isGeneratedList[i].text = b.ToString();
+            isGeneratedList[i].SetActive(b);
             i++;
         }
     }
