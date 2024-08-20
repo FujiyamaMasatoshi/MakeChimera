@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Animal0 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3873860790228395654, guid: c0ee8103d7927d64dbdfe8f6bd313d80, type: 3}
+      propertyPath: japaneseName
+      value: "\u30A6\u30B7"
+      objectReference: {fileID: 0}
     - target: {fileID: 5082047993723503993, guid: c0ee8103d7927d64dbdfe8f6bd313d80, type: 3}
       propertyPath: m_SizeDelta.x
       value: 10

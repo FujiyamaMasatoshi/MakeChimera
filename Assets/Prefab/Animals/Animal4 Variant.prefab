@@ -62,11 +62,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2234254701016354373, guid: c0ee8103d7927d64dbdfe8f6bd313d80, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3873860790228395654, guid: c0ee8103d7927d64dbdfe8f6bd313d80, type: 3}
       propertyPath: defaultScale
       value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873860790228395654, guid: c0ee8103d7927d64dbdfe8f6bd313d80, type: 3}
+      propertyPath: japaneseName
+      value: "\u30AB\u30E1"
       objectReference: {fileID: 0}
     - target: {fileID: 5082047993723503993, guid: c0ee8103d7927d64dbdfe8f6bd313d80, type: 3}
       propertyPath: m_SizeDelta.x
