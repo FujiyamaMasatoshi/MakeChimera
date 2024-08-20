@@ -9,6 +9,7 @@ public class Select : MonoBehaviour
     private Vector3 offset;  // マウスの位置とオブジェクトの位置との差分
     private Vector3 previousPosition = Vector3.zero;
     private bool isDrag = false;  // ドラッグ可能か
+    private bool isSet = false;  // セット可能か
     
     // Start is called before the first frame update
     void Start()
@@ -62,7 +63,7 @@ public class Select : MonoBehaviour
     {
         isDrag = false;
         
-        if (transform.position.y >= greenRegion)
+        if (transform.position.y >= greenRegion && !isSet)
         {
             transform.position = previousPosition;
         }
@@ -85,5 +86,10 @@ public class Select : MonoBehaviour
     public bool GetIsDrag()
     {
         return isDrag;
+    }
+
+    public void SetIsSet(bool newIsSet)
+    {
+        isSet = newIsSet;
     }
 }
