@@ -2604,6 +2604,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e747ec1f0ffec4d10baad32c4136483a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctSE: {fileID: 8300000, guid: 2318326bef034aa4c877e85954245541, type: 3}
+  incorrectSE: {fileID: 8300000, guid: 5d3a47e4951009647b1fbf256f048cbd, type: 3}
   animals:
   - {fileID: 3107129419280036744, guid: 24940ead7a548b546982d620b00bb6d7, type: 3}
   - {fileID: 8520933468067633874, guid: 5dd845d2a805cbc439485244365ad7ea, type: 3}

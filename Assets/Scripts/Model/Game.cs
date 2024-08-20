@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
+    [Header("正解SE")] public AudioClip correctSE;
+    [Header("不正解SE")] public AudioClip incorrectSE;
+
     [SerializeField, Header("全てのAnimalの数")] private List<Animal> animals;
     
     [SerializeField, Header("キメラを生成する数")] private int numChimera = 5;
@@ -112,6 +115,7 @@ public class Game : MonoBehaviour
                 if (chimeraName.Equals(generatedChimeraName))
                 {
                     Debug.Log("生成されたキメラは解です。");
+                    SManager.instance.PlaySE(correctSE);
 
                     // Dict{answerChimeraNames}を更新
                     UpdateAnswerChimeraDict();
@@ -124,6 +128,7 @@ public class Game : MonoBehaviour
                 }
             }
             Debug.Log("それは解ではありません。");
+            SManager.instance.PlaySE(incorrectSE);
         }
     }
 
