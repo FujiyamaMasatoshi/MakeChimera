@@ -5,7 +5,7 @@ using UnityEngine;
 public class Box : MonoBehaviour
 {
     [Header("左のボックスか")] public bool isFirstBox;
-    private Game game = null;
+    [SerializeField] private Game game = null;
     private Animal animal = null;
     private string animalTag = "Animal";
 
@@ -13,7 +13,7 @@ public class Box : MonoBehaviour
     void Start()
     {
         // コンポーネントのインスタンスを捕まえる
-        game = transform.parent.GetComponent<Game>();
+        //game = transform.parent.GetComponent<Game>();
     }
 
     // Update is called once per frame
@@ -25,6 +25,7 @@ public class Box : MonoBehaviour
     // 動物との衝突判定
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("衝突");
         if (collision.tag == animalTag)
         {
             animal = collision.gameObject.GetComponent<Animal>();

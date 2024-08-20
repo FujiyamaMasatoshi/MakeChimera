@@ -15,9 +15,11 @@ public class AnimalPlacer : MonoBehaviour
 
     public void GenerateAnimalObj()
     {
-        foreach(Animal animal in game.gameUsedAnimals)
+        //foreach(Animal animal in game.gameUsedAnimals)
+        for (int i=0; i<game.gameUsedAnimals.Count; i++)
         {
-            Instantiate(animal, new Vector3(0f, 0f, 0f), Quaternion.identity);
+            Animal animal = game.gameUsedAnimals[i];
+            Instantiate(animal, new Vector3(i, -1f, 0f), Quaternion.identity);
             
         }
     }
