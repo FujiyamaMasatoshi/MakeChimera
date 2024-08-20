@@ -9,6 +9,9 @@ public class GenerateButton : MonoBehaviour
 
     public void StartGenerateChimera()
     {
+        // game.generatedChimeraNameを""にする
+        game.ClearGeneratedChimeraName();
+
         // キメラ生成
         game.GenerateChimeraName();
 
@@ -18,6 +21,14 @@ public class GenerateButton : MonoBehaviour
 
         // アンサーリストUIの更新
         generateList.SetAnswerList();
-        
+
+        // もし、生成したAnimalを全て合成して、0になったら
+        // ゲームをリセットして再度スタート
+        if (game.gameUsedAnimals.Count == 0)
+        {
+            // ゲームの初期化
+            game.InitGame();
+            generateList.SetAnswerList();
+        }
     }
 }

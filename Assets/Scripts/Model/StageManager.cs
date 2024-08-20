@@ -10,6 +10,9 @@ public class StageManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // トータルスコアの初期化
+        GManager.instance.score = 0;
+
         game.InitGame();
         generateList.SetAnswerList();
     }

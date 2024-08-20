@@ -13,9 +13,8 @@ public class Game : MonoBehaviour
     [SerializeField] private int collect3 = 3;
     [SerializeField] private int collect4 = 4;
     [SerializeField] private int collectAll = 5;
-    private int oneSetScore = 0; // 1フェーズごとのスコア -> GameManagerでトータルスコアを管理
+    //public int oneSetScore = 0; // 1フェーズごとのスコア -> GameManagerでトータルスコアを管理
     private int numCollect = 0; // 正解数
-
 
 
     public List<Animal> gameUsedAnimals = new List<Animal>(); // ゲームで使用されるAnimalsを保持するリスト
@@ -30,14 +29,11 @@ public class Game : MonoBehaviour
     public string generatedChimeraName = "";
 
 
-    //private void Start()
-    //{
-    //    InitGame();
-    //}
 
-    // ゲーム開始時に呼ぶ初期化メソッド
+    // ゲーム開始時に呼ぶ初期化加するメソッド
     public void InitGame()
     {
+        
         // ゲーム情報の初期化
         gameUsedAnimals.Clear();
         answerChimeraNames.Clear();
@@ -47,11 +43,12 @@ public class Game : MonoBehaviour
         // 答えの生成
         MakeAnswer();
 
-        // スコアの初期化
-        oneSetScore = 0;
-
     }
 
+    public void ClearGeneratedChimeraName()
+    {
+        generatedChimeraName = "";
+    }
 
     // 左側を選択するAnimalをセット
     public void SetFirstAnimal(Animal animal)
@@ -87,9 +84,7 @@ public class Game : MonoBehaviour
             lastAnimal = null;
 
 
-            // もし、生成したAnimalを全て合成して、0になったら
-            // ゲームをリセットして再度スタート
-            if (gameUsedAnimals.Count == 0) InitGame();
+            
             
         }
     }
@@ -106,6 +101,10 @@ public class Game : MonoBehaviour
                 {
                     Debug.Log("生成されたキメラは解です。");
 
+                    // Dict{answerChimeraNames}を更新
+                    UpdateAnswerChimeraDict();
+
+
                     // 正解数++
                     numCollect++;
                     ComputeScore();
@@ -113,6 +112,21 @@ public class Game : MonoBehaviour
                 }
             }
             Debug.Log("それは解ではありません。");
+        }
+    }
+
+    private void UpdateAnswerChimeraDict()
+    {
+        // この時は、generatedChimeraNameをまだ保持しているので、
+        // dictを参照して、false->trueに変更する
+        foreach(string chimeraName in answerChimeraNames.Keys)
+        {
+            if (chimeraName.Equals(generatedChimeraName))
+            {
+                answerChimeraNames[generatedChimeraName] = true;
+                break;
+            }
+
         }
     }
 
@@ -190,11 +204,15 @@ public class Game : MonoBehaviour
 
     private void ComputeScore()
     {
-        if (numCollect == 1) oneSetScore += collect1;
-        else if (numCollect == 2) oneSetScore += collect2;
-        else if (numCollect == 3) oneSetScore += collect3;
-        else if (numCollect == 4) oneSetScore += collect4;
-        else if (numCollect == 5) oneSetScore += collectAll;
+        if (numCollect == 1) GManager.instance.score += collect1;
+        else if (numCollect == 2) GManager.instance.score += collect2;
+        else if (numCollect == 3) GManager.instance.score += collect3;
+        else if (numCollect == 4) GManager.instance.score += collect4;
+        else if (numCollect == 5)
+        {
+            GManager.instance.score += collectAll;
+
+        }
 
     }
 
