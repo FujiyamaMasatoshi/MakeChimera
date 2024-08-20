@@ -4,16 +4,16 @@ using Unity.Mathematics;
 using UnityEngine;
 
 public class Select : MonoBehaviour
-{
-    [Header("ƒhƒ‰ƒbƒO—LŒø”ÍˆÍ")] public float dragRange;
+{ 
+    [Header("ãƒ‰ãƒ©ãƒƒã‚°æœ‰åŠ¹ç¯„å›²")] public float dragRange;
 
-    private Vector3 offset;  //ƒ}ƒEƒX‚ÌˆÊ’u‚ÆƒIƒuƒWƒFƒNƒg‚ÌˆÊ’u‚Æ‚Ì·•ª
-    private bool isDrag = false;  //ƒhƒ‰ƒbƒO‰Â”\‚©
-
+    private Vector3 offset;  //ãƒã‚¦ã‚¹ã®ä½ç½®ã¨ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä½ç½®ã¨ã®å·®åˆ†
+    private bool isDrag = false;  //ãƒ‰ãƒ©ãƒƒã‚°å¯èƒ½ã‹
+    
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class Select : MonoBehaviour
         }
     }
 
-    //ƒ}ƒEƒX‚ğ‰Ÿ‚µ‚½‚Æ‚«
+    //ãƒã‚¦ã‚¹ã‚’æŠ¼ã—ãŸã¨ã
     void MouseDown()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -46,17 +46,17 @@ public class Select : MonoBehaviour
         }
     }
 
-    //ƒhƒ‰ƒbƒO‚µ‚Ä‚¢‚é‚Æ‚«
+    //ãƒ‰ãƒ©ãƒƒã‚°ã—ã¦ã„ã‚‹ã¨ã
     void MouseDrag()
     {
-        if (isDrag)
+        if(isDrag)
         {
             Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = mousePosition + offset;
         }
     }
 
-    //ƒ}ƒEƒX‚ğ—£‚µ‚½‚Æ‚«
+    //ãƒã‚¦ã‚¹ã‚’é›¢ã—ãŸã¨ã
     void MouseUp()
     {
         isDrag = false;
