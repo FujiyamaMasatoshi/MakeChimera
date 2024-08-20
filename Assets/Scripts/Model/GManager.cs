@@ -43,6 +43,7 @@ public class GManager : MonoBehaviour
         score += upScore;
     }
 
+    // 時間経過を止める
     public void StopTimer()
     {
         isTimeAdvance = false;
