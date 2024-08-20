@@ -1161,7 +1161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1304,8 +1304,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Button
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 777968203c5a0412090b81e185d5e488, type: 2}
-  m_sharedMaterial: {fileID: -650620859249732690, guid: 777968203c5a0412090b81e185d5e488, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1438,8 +1438,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 777968203c5a0412090b81e185d5e488, type: 2}
-  m_sharedMaterial: {fileID: -650620859249732690, guid: 777968203c5a0412090b81e185d5e488, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1565,7 +1565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1939,8 +1939,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 777968203c5a0412090b81e185d5e488, type: 2}
-  m_sharedMaterial: {fileID: -650620859249732690, guid: 777968203c5a0412090b81e185d5e488, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2148,8 +2148,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 777968203c5a0412090b81e185d5e488, type: 2}
-  m_sharedMaterial: {fileID: -650620859249732690, guid: 777968203c5a0412090b81e185d5e488, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2658,8 +2658,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 777968203c5a0412090b81e185d5e488, type: 2}
-  m_sharedMaterial: {fileID: -650620859249732690, guid: 777968203c5a0412090b81e185d5e488, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2792,8 +2792,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 777968203c5a0412090b81e185d5e488, type: 2}
-  m_sharedMaterial: {fileID: -650620859249732690, guid: 777968203c5a0412090b81e185d5e488, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2897,13 +2897,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animals:
-  - {fileID: 5701369334668074099, guid: c4eaea31e63e5480f93639a18a9491ca, type: 3}
-  - {fileID: 5502105339434359232, guid: 3d57d80451cd34ce1b2c5b49c4225a21, type: 3}
-  - {fileID: 1039250086814815521, guid: 9185552292a374f29a65f5484429d843, type: 3}
-  - {fileID: 5748478010042395716, guid: d30ea0c190c544622bf840cfc5909a4c, type: 3}
-  - {fileID: 6582597877116072377, guid: feac050cda5de4f60b05877c1fd05e3c, type: 3}
-  - {fileID: 4792362551706023802, guid: 2ca1fa0bb9dd54f21ac2f4ded862f2b3, type: 3}
-  numChimera: 2
+  - {fileID: 3107129419280036744, guid: 24940ead7a548b546982d620b00bb6d7, type: 3}
+  - {fileID: 8520933468067633874, guid: 5dd845d2a805cbc439485244365ad7ea, type: 3}
+  - {fileID: 8308250451998486460, guid: 3cd29d4b4e1b0cf4f99c3fc93d7231cc, type: 3}
+  - {fileID: 8787779917143938281, guid: 191cc2f206ce1f847a1873aa6ef85594, type: 3}
+  - {fileID: 2590344384209875759, guid: 09c838ff5a0781f4b8e8d68b35ded0aa, type: 3}
+  - {fileID: 2281871605079290204, guid: e534bcc8c9b429b4ab3a1bba485332c5, type: 3}
+  - {fileID: 5680156653446802676, guid: d70e7d5f5ea759247b3866f4d3c29a09, type: 3}
+  - {fileID: 3848843348462942372, guid: 560e9a33c9f9c0e4cafaeaf9990bbde5, type: 3}
+  - {fileID: 7197730136937541664, guid: cd42b25f67c45304686cd38a2a4b66e0, type: 3}
+  - {fileID: 7890750587407859245, guid: 2726eaf70efab8447be1635ae9e8ecd1, type: 3}
+  - {fileID: 7587566534717929959, guid: be565cac0dc056749be49006e9bb9291, type: 3}
+  - {fileID: 4212704226754583268, guid: 1861cf542127e2a4e9a64570099e6aaa, type: 3}
+  - {fileID: 5233793104481838142, guid: e2549a1fefe54c646a8a9fa2257ee0c2, type: 3}
+  - {fileID: 7791214156624271026, guid: 4e13b9fc11148a648a5cb355ec89462f, type: 3}
+  - {fileID: 2770717804412458320, guid: 332fff08a2baecc40a8bbb26b4b7e22b, type: 3}
+  - {fileID: 5258829169200442680, guid: 2354f5b26632cb04798c6a3a9d31f029, type: 3}
+  - {fileID: 1004004269899907502, guid: 116163df6e558a44e99ed8614e806a73, type: 3}
+  - {fileID: 2479700087515881022, guid: 01b0e3b90f506be478bbe277e747f3de, type: 3}
+  - {fileID: 7870788624026926218, guid: 1d04e02d227435b4db474221a45e4f25, type: 3}
+  - {fileID: 7726240103927737617, guid: 137a64eafa2912d48af4affd5768748e, type: 3}
+  - {fileID: 6903867908610689729, guid: 086fadd2da5946f44b28b5b34996ace9, type: 3}
+  - {fileID: 6242641048984761826, guid: 57a080b427f72cc409c7bcdd0d9344e6, type: 3}
+  - {fileID: 8190627126778969272, guid: eccca0a3b126c134199da970e88b72e4, type: 3}
+  - {fileID: 6479179748947164014, guid: 5976c19235cded04b9448b8f2b77762e, type: 3}
+  numChimera: 5
   collect1: 1
   collect2: 2
   collect3: 3
