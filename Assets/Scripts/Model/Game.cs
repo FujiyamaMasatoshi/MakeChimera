@@ -157,7 +157,18 @@ public class Game : MonoBehaviour
         {
             int random = animalID[Random.Range(0, animalID.Count)];
 
-            Animal animal = Instantiate(animals[random], new Vector3(i, -1f, 0f), Quaternion.identity);
+            Vector3 generatePos;
+            if (i < numChimera)
+            {
+                float xPos = (i - (float)(numChimera - 1) / 2)*2.5f;
+                generatePos = new Vector3(xPos, -1f, 0f);
+            }
+            else
+            {
+                float xPos = (i - (float)(numChimera-1) / 2 - numChimera)* 2.5f;
+                generatePos = new Vector3(xPos, -3f, 0f);
+            }
+            Animal animal = Instantiate(animals[random], generatePos, Quaternion.identity);
             gameUsedAnimals.Add(animal);
 
             // IDの削除

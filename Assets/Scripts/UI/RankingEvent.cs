@@ -32,11 +32,12 @@ public class RankingEvent : MonoBehaviour
     public void DisplayRankingList()
     {
         List<PlayerData> playersData = dataManager.Load();
+        Debug.Log($"playersData.Count: {playersData.Count}");
         for (int i=0; i<rankingList.Count; i++)
         {
             // playersDataをまだ全て参照していない場合
             if (i < playersData.Count) rankingList[i].text = $"{playersData[i].name}     " + $"{playersData[i].score}";
-            else rankingList[i].gameObject.SetActive(false);
+            //else rankingList[i].gameObject.SetActive(false);
         }
     }
 }
