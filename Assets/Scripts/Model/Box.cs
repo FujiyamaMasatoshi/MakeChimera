@@ -63,4 +63,17 @@ public class Box : MonoBehaviour
             AnimalTrigger(collision);
         }
     }
+
+    // 動物の脱出判定
+    private void OnTriggerExit2D(Collider2D collsion)
+    {
+        if (isFirstBox)
+        {
+            game.SetFirstAnimal(null);
+        }
+        else
+        {
+            game.SetLastAnimal(null);
+        }
+    }
 }
