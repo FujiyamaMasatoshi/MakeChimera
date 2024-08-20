@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class DiplayTimer : MonoBehaviour
+public class DisplayTimer : MonoBehaviour
 {
-    [SerializeField] private StageManager stageManager = null;
-
     private TextMeshProUGUI timerText;
 
     private void Start()
