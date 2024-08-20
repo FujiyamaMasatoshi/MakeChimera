@@ -7,8 +7,8 @@ public class Select : MonoBehaviour
 { 
     [Header("ドラッグ有効範囲")] public float dragRange;
 
-    private Vector3 offset;  //マウスの位置とオブジェクトの位置との差分
-    private bool isDrag = false;  //ドラッグ可能か
+    private Vector3 offset;  // マウスの位置とオブジェクトの位置との差分
+    private bool isDrag = false;  // ドラッグ可能か
     
     // Start is called before the first frame update
     void Start()
@@ -34,7 +34,7 @@ public class Select : MonoBehaviour
         }
     }
 
-    //マウスを押したとき
+    // マウスを押したとき
     void MouseDown()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -46,7 +46,7 @@ public class Select : MonoBehaviour
         }
     }
 
-    //ドラッグしているとき
+    // ドラッグしているとき
     void MouseDrag()
     {
         if(isDrag)
@@ -56,7 +56,7 @@ public class Select : MonoBehaviour
         }
     }
 
-    //マウスを離したとき
+    // マウスを離したとき
     void MouseUp()
     {
         isDrag = false;
