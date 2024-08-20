@@ -77,8 +77,9 @@ public class Box : MonoBehaviour
             }
 
             inBoxAnimal = null;
-            select.SetIsSet(false);
         }
+
+        select.SetIsSet(false);
     }
 
     // 動物の衝突判定
