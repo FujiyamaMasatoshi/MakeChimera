@@ -20,10 +20,10 @@ public class Game : MonoBehaviour
     public string generatedChimeraName = "";
 
 
-    private void Start()
-    {
-        InitGame();
-    }
+    //private void Start()
+    //{
+    //    InitGame();
+    //}
 
     // ゲーム開始時に呼ぶ初期化メソッド
     public void InitGame()
