@@ -233,7 +233,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -355.6, y: 164.7}
+  m_AnchoredPosition: {x: -355.6, y: 163.84}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &75003348
@@ -258,8 +258,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u6B8B\u308A\u6642\u9593\n0"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 777968203c5a0412090b81e185d5e488, type: 2}
-  m_sharedMaterial: {fileID: -650620859249732690, guid: 777968203c5a0412090b81e185d5e488, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ad4cc48f90e824199bd544e44f8773cc, type: 2}
+  m_sharedMaterial: {fileID: 6481139043292832802, guid: ad4cc48f90e824199bd544e44f8773cc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2644,11 +2644,11 @@ MonoBehaviour:
   - {fileID: 8190627126778969272, guid: eccca0a3b126c134199da970e88b72e4, type: 3}
   - {fileID: 6479179748947164014, guid: 5976c19235cded04b9448b8f2b77762e, type: 3}
   numChimera: 5
-  correct1: 1
-  correct2: 2
-  correct3: 3
-  correct4: 4
-  correctAll: 5
+  correct1: 10
+  correct2: 20
+  correct3: 30
+  correct4: 40
+  correctAll: 50
   gameUsedAnimals: []
   generatedChimeraName: 
 --- !u!4 &1906582071
@@ -2813,8 +2813,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Score
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 777968203c5a0412090b81e185d5e488, type: 2}
-  m_sharedMaterial: {fileID: -650620859249732690, guid: 777968203c5a0412090b81e185d5e488, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ad4cc48f90e824199bd544e44f8773cc, type: 2}
+  m_sharedMaterial: {fileID: 6481139043292832802, guid: ad4cc48f90e824199bd544e44f8773cc, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
