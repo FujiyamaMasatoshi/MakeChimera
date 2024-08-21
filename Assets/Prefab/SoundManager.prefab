@@ -50,7 +50,8 @@ MonoBehaviour:
   SE_Volume: 1
   BGM_Volume: 1
   BGM_List:
-  - {fileID: 8300000, guid: 2732b373c9015460f9d628fe6d9b24c4, type: 3}
+  - {fileID: 8300000, guid: 3c95747867ebb5f48a99ef1bcd80429c, type: 3}
+  - {fileID: 8300000, guid: 0eaa3822a67faef4fb5eccb568c74677, type: 3}
   BGM_idx: 0
   seSource: {fileID: 1550287040949773942}
   bgmSource: {fileID: 7077937988271083802}
@@ -64,7 +65,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 3c95747867ebb5f48a99ef1bcd80429c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -160,11 +161,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 0eaa3822a67faef4fb5eccb568c74677, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

@@ -34,7 +34,6 @@ public class SManager : MonoBehaviour
     {
         seSource.volume = SE_Volume;
         bgmSource.volume = BGM_Volume;
-        SetBGM(0);
         StartBGM();
     }
 
@@ -82,7 +81,12 @@ public class SManager : MonoBehaviour
     /// <returns></returns>
     public void SetBGM(int NewBGM)
     {
-        BGM_idx = NewBGM;
-        bgmSource.clip = BGM_List[BGM_idx];
+        if(NewBGM != BGM_idx)
+        {
+            StopBGM();
+            BGM_idx = NewBGM;
+            bgmSource.clip = BGM_List[BGM_idx];
+            StartBGM();
+        }
     }
 }

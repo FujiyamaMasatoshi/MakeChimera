@@ -53,7 +53,7 @@ public class StageManager : MonoBehaviour
         if (GManager.instance.gameTime > GManager.instance.limitTime)
         {
             SManager.instance.PlaySE(timeUpSE);
-            
+
             // SEが鳴り終わるの待ちたい
 
             SceneManager.LoadScene("Result");
