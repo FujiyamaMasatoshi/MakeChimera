@@ -7,7 +7,9 @@ public class RankingEvent : MonoBehaviour
 {
 
     [SerializeField] private GameObject rankingPanel = null;
-    [SerializeField] private List<TextMeshProUGUI> rankingList = new List<TextMeshProUGUI>();
+    [SerializeField] private List<RankData> rankingList = new List<RankData>();
+    
+
     [SerializeField, Header("DataManager")] private DataManager dataManager = null;
 
     // Start is called before the first frame update
@@ -40,7 +42,12 @@ public class RankingEvent : MonoBehaviour
         for (int i=0; i<rankingList.Count; i++)
         {
             // playersDataをまだ全て参照していない場合
-            if (i < playersData.Count) rankingList[i].text = $"{playersData[i].name}     " + $"{playersData[i].score}";
+            if (i < playersData.Count)
+            {
+                rankingList[i].SetNameText(playersData[i].name);
+                rankingList[i].SetScoreText(playersData[i].score.ToString());
+
+            }
             //else rankingList[i].gameObject.SetActive(false);
         }
     }

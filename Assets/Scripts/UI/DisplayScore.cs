@@ -16,6 +16,6 @@ public class DisplayScore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "Score: "+GManager.instance.score;
+        scoreText.text = "スコア: "+GManager.instance.score;
     }
 }

@@ -16,6 +16,6 @@ public class DisplayTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timerText.text = "残り時間: " + (GManager.instance.limitTime - (float)GManager.instance.gameTime);
+        timerText.text = "残り時間: \n" + (GManager.instance.limitTime - (float)GManager.instance.gameTime).ToString("f1");
     }
 }
