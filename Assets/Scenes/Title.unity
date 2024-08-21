@@ -628,13 +628,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 1411023768}
     m_Modifications:
     - target: {fileID: 1069023546790011135, guid: 92ddb4abf357fc94a93e6e7830b7b2c5, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -650620859249732690, guid: 777968203c5a0412090b81e185d5e488, type: 2}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1747896189179927746, guid: 92ddb4abf357fc94a93e6e7830b7b2c5, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -650620859249732690, guid: 777968203c5a0412090b81e185d5e488, type: 2}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2817959315308873533, guid: 92ddb4abf357fc94a93e6e7830b7b2c5, type: 3}
       propertyPath: m_Name
       value: CreditPanel
@@ -647,26 +647,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 387072426}
-    - target: {fileID: 3285161735043824987, guid: 92ddb4abf357fc94a93e6e7830b7b2c5, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ClosePanel
-      objectReference: {fileID: 0}
     - target: {fileID: 4364739070353694813, guid: 92ddb4abf357fc94a93e6e7830b7b2c5, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -650620859249732690, guid: 777968203c5a0412090b81e185d5e488, type: 2}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4446763222123850198, guid: 92ddb4abf357fc94a93e6e7830b7b2c5, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -650620859249732690, guid: 777968203c5a0412090b81e185d5e488, type: 2}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4604524620394383712, guid: 92ddb4abf357fc94a93e6e7830b7b2c5, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -650620859249732690, guid: 777968203c5a0412090b81e185d5e488, type: 2}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4880497328349327256, guid: 92ddb4abf357fc94a93e6e7830b7b2c5, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -650620859249732690, guid: 777968203c5a0412090b81e185d5e488, type: 2}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5528530191216532595, guid: 92ddb4abf357fc94a93e6e7830b7b2c5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -748,13 +744,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7230192689798218019, guid: 92ddb4abf357fc94a93e6e7830b7b2c5, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -650620859249732690, guid: 777968203c5a0412090b81e185d5e488, type: 2}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9069689765480924016, guid: 92ddb4abf357fc94a93e6e7830b7b2c5, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -650620859249732690, guid: 777968203c5a0412090b81e185d5e488, type: 2}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
