@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
+    [SerializeField] private AudioClip stageSE;
+    [SerializeField] private AudioClip timeUpSE;
+
     [SerializeField] private Game game = null;
     [SerializeField] private GenerateList generateList = null;
 
@@ -14,11 +17,30 @@ public class StageManager : MonoBehaviour
         // ゲームのリトライを呼び出す
         GManager.instance.RetryGame();
         
+        // 準備の演出
+        // 「沢山キメラを作れ！」
+        // 「Ready?」
+        // 「Go!」
 
-        game.InitGame();
-        generateList.SetAnswerList();
+        newStage();
     }
 
+    // 新しいステージを整える。問題作成、表示、SE。
+    private void newStage()
+    {
+        game.InitGame();
+        generateList.SetAnswerList();
+        SManager.instance.PlaySE(stageSE);
+    }
+
+    public void TryNewStage()
+    {
+        // ステージ終了なら初期化
+        if(game.CheckStageEnd())
+        {
+            newStage();
+        }
+    }
 
 
     // Update is called once per frame
@@ -30,6 +52,10 @@ public class StageManager : MonoBehaviour
         // 時間オーバーしたら、
         if (GManager.instance.gameTime > GManager.instance.limitTime)
         {
+            SManager.instance.PlaySE(timeUpSE);
+            
+            // SEが鳴り終わるの待ちたい
+
             SceneManager.LoadScene("Result");
         }
     }

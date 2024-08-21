@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
-    [Header("正解SE")] public AudioClip correctSE;
-    [Header("不正解SE")] public AudioClip incorrectSE;
-
     [SerializeField, Header("全てのAnimalの数")] private List<Animal> animals;
     
     [SerializeField, Header("キメラを生成する数")] private int numChimera = 5;
 
-    [SerializeField] private int collect1 = 1;
-    [SerializeField] private int collect2 = 2;
-    [SerializeField] private int collect3 = 3;
-    [SerializeField] private int collect4 = 4;
-    [SerializeField] private int collectAll = 5;
+    [SerializeField] private int correct1 = 1;
+    [SerializeField] private int correct2 = 2;
+    [SerializeField] private int correct3 = 3;
+    [SerializeField] private int correct4 = 4;
+    [SerializeField] private int correctAll = 5;
     //public int oneSetScore = 0; // 1フェーズごとのスコア -> GameManagerでトータルスコアを管理
-    private int numCollect = 0; // 正解数
+    private int numCorrect = 0; // 正解数
 
     public List<Animal> gameUsedAnimals = new List<Animal>(); // ゲームで使用されるAnimalsを保持するリスト
     
@@ -104,6 +101,11 @@ public class Game : MonoBehaviour
         return lastAnimal;
     }
 
+    public int GetNumCorrect()
+    {
+        return numCorrect;
+    }
+
     // 選択された2つのAnimalからChimeraを生成する
     public void CheckAnswer()
     {
@@ -115,20 +117,17 @@ public class Game : MonoBehaviour
                 if (chimeraName.Equals(generatedChimeraName))
                 {
                     Debug.Log("生成されたキメラは解です。");
-                    SManager.instance.PlaySE(correctSE);
 
                     // Dict{answerChimeraNames}を更新
                     UpdateAnswerChimeraDict();
 
-
                     // 正解数++
-                    numCollect++;
+                    numCorrect++;
                     ComputeScore();
                     return;
                 }
             }
             Debug.Log("それは解ではありません。");
-            SManager.instance.PlaySE(incorrectSE);
         }
     }
 
@@ -231,14 +230,13 @@ public class Game : MonoBehaviour
 
     private void ComputeScore()
     {
-        if (numCollect == 1) GManager.instance.score += collect1;
-        else if (numCollect == 2) GManager.instance.score += collect2;
-        else if (numCollect == 3) GManager.instance.score += collect3;
-        else if (numCollect == 4) GManager.instance.score += collect4;
-        else if (numCollect == 5)
+        if (numCorrect == 1) GManager.instance.score += correct1;
+        else if (numCorrect == 2) GManager.instance.score += correct2;
+        else if (numCorrect == 3) GManager.instance.score += correct3;
+        else if (numCorrect == 4) GManager.instance.score += correct4;
+        else if (numCorrect == 5)
         {
-            GManager.instance.score += collectAll;
-
+            GManager.instance.score += correctAll;
         }
 
     }

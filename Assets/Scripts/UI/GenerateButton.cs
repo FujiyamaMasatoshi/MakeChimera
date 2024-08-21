@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class GenerateButton : MonoBehaviour
 {
-    [SerializeField] private Game game = null;
+    [SerializeField] private AudioClip okSE;
+    [SerializeField] private AudioClip ngSE;
+    [SerializeField] private StageManager stageManager = null;
     [SerializeField] private Generator generator = null;
     [SerializeField] private GenerateList generateList = null;
 
@@ -15,7 +17,7 @@ public class GenerateButton : MonoBehaviour
     {
         if(generator.CheckGeneratable())
         {
-            Debug.Log("Generation Successed");
+            SManager.instance.PlaySE(okSE);
 
             // キメラ生成
             generator.GenerateChimera();
@@ -26,16 +28,12 @@ public class GenerateButton : MonoBehaviour
             // 使ったアニマルとキメラの破壊
             generator.DestroyAnimalsAndChimera();
 
-            // ステージ終了なら初期化
-            if(game.CheckStageEnd())
-            {
-                game.InitGame();
-                generateList.SetAnswerList();
-            }
+            // ステージを更新する可能性がある
+            stageManager.TryNewStage();
         }
         else
         {
-            Debug.Log("Generation Failed");
+            SManager.instance.PlaySE(ngSE);
         }
     }
 }
