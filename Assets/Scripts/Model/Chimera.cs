@@ -13,6 +13,8 @@ public class Chimera : MonoBehaviour
     [SerializeField] private float defaultScale;
     [SerializeField] private float defaultRotation;
     [SerializeField] private float destroyTime;
+    [SerializeField] private FadeOutCanvas fadeOutFirst;
+    [SerializeField] private FadeOutCanvas fadeOutLast;
 
     public string GetName()
     {
@@ -80,7 +82,7 @@ public class Chimera : MonoBehaviour
         transform.eulerAngles = currentRotation;
     }
 
-    public void DestroySelf()
+    public void DestroySelf(bool isAnswer)
     {
         Destroy(this.gameObject, destroyTime);
     }

@@ -11,6 +11,7 @@ public class Animal : MonoBehaviour
     [SerializeField] private float defaultScale;
     [SerializeField] private float defaultRotation;
     [SerializeField] private float destroyTime;
+    [SerializeField] private FadeOutCanvas fadeOut;
 
     public AudioClip voice;
 
@@ -92,6 +93,7 @@ public class Animal : MonoBehaviour
     // 自己破壊処理
     public void DestroySelf()
     {
+        StartCoroutine(fadeOut.FadeOut());
         Destroy(this.gameObject, destroyTime);
     }
 

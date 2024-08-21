@@ -10,6 +10,7 @@ public class Generator : MonoBehaviour
     [SerializeField] private GameObject generatePlace;
 
     private Chimera generatedChimera = null;
+    private bool chimeraIsAnswer;
 
     // 生成装置の左右に空きがなければTrue
     public bool CheckGeneratable()
@@ -36,7 +37,6 @@ public class Generator : MonoBehaviour
     {
         // Animalsの後処理はGameがやってる、あとで処理をここに移したい
         game.ClearAnimals();
-
-        generatedChimera.DestroySelf();
+        generatedChimera.DestroySelf(game.GetGeneratedIsAnswer());
     }
 }

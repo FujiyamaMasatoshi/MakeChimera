@@ -26,6 +26,7 @@ public class Game : MonoBehaviour
 
     // 生成されたキメラの名前
     public string generatedChimeraName = "";
+    public bool generatedIsAnswer = false;
 
 
 
@@ -52,6 +53,12 @@ public class Game : MonoBehaviour
     public void ClearGeneratedChimeraName()
     {
         generatedChimeraName = "";
+        generatedIsAnswer = false;
+    }
+
+    public bool GetGeneratedIsAnswer()
+    {
+        return generatedIsAnswer;
     }
 
     // キメラ名をセット
@@ -112,22 +119,30 @@ public class Game : MonoBehaviour
         // answerChimeraNamesからgeneratedChimeraNameを探索して、同じものがあるかをチェックする
         if (generatedChimeraName != "")
         {
+            // 正解管理フラグの更新
+            generatedIsAnswer = false;
             foreach (string chimeraName in answerChimeraNames.Keys)
             {
                 if (chimeraName.Equals(generatedChimeraName))
                 {
-                    Debug.Log("生成されたキメラは解です。");
-
-                    // Dict{answerChimeraNames}を更新
-                    UpdateAnswerChimeraDict();
-
-                    // 正解数++
-                    numCorrect++;
-                    ComputeScore();
-                    return;
+                    generatedIsAnswer = true;
+                    break;
                 }
             }
-            Debug.Log("それは解ではありません。");
+
+            if(generatedIsAnswer)
+            {
+                Debug.Log("生成されたキメラは解です。");
+                // Dict{answerChimeraNames}を更新
+                UpdateAnswerChimeraDict();
+                // 正解数++
+                numCorrect++;
+                ComputeScore();
+            }
+            else
+            {
+                Debug.Log("それは解ではありません。");
+            }
         }
     }
 

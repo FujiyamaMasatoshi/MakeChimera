@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 1200098551550570576}
   - component: {fileID: -793048568524605480}
   - component: {fileID: -7850392051988632139}
+  - component: {fileID: 4649610702640937668}
   m_Layer: 0
   m_Name: AnimalBase
   m_TagString: Animal
@@ -129,6 +130,8 @@ MonoBehaviour:
   defaultScale: 1
   defaultRotation: 0
   destroyTime: 0.5
+  fadeOut: {fileID: 4649610702640937668}
+  voice: {fileID: 0}
 --- !u!114 &1200098551550570576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,6 +217,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &4649610702640937668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2234254701016354373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ae6cbcf6d5336f4d9fee91875427534, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 3762058110457767478}
+  fadeDuration: 1
 --- !u!1 &7825774696084116761
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +318,7 @@ GameObject:
   - component: {fileID: 1689036099316598732}
   - component: {fileID: 6203708074942477206}
   - component: {fileID: 3711728501281892723}
+  - component: {fileID: 3762058110457767478}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -392,3 +410,15 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!225 &3762058110457767478
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9165854555951018224}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0

@@ -187,6 +187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3787923585157580757}
   - component: {fileID: 1225701322654722865}
+  - component: {fileID: 3814120631031035701}
   m_Layer: 0
   m_Name: ChimeraBase
   m_TagString: Untagged
@@ -207,8 +208,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 6147112842984699693}
   - {fileID: 588509914027010737}
+  - {fileID: 6147112842984699693}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1225701322654722865
@@ -229,7 +230,22 @@ MonoBehaviour:
   lastImage: {fileID: 0}
   defaultScale: 1
   defaultRotation: 0
-  destroyTime: 1.5
+  destroyTime: 10
+  fadeOut: {fileID: 3814120631031035701}
+--- !u!114 &3814120631031035701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4466365377346872350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ae6cbcf6d5336f4d9fee91875427534, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 0}
+  fadeDuration: 10
 --- !u!1 &6837165130282369936
 GameObject:
   m_ObjectHideFlags: 0
