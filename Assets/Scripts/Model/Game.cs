@@ -40,6 +40,8 @@ public class Game : MonoBehaviour
         SelectGameUsedAnimals();
         // 答えの生成
         MakeAnswer();
+
+        numCorrect = 0;
     }
 
     // 今のステージの終了判定
