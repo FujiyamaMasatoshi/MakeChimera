@@ -809,6 +809,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 454ec3ed3aaf64948beaf22a12317053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageSE: {fileID: 8300000, guid: 211cf34574c46984392570860d5000c0, type: 3}
+  timeUpSE: {fileID: 8300000, guid: ba986f8e49e9c1348b5b885ecc0ba515, type: 3}
   game: {fileID: 1906582070}
   generateList: {fileID: 1351756152}
 --- !u!4 &679327188
@@ -1012,7 +1014,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d3b16093e0f34d38af144e2eb5f96c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  game: {fileID: 1906582070}
+  okSE: {fileID: 8300000, guid: 3b32cee1529fbe145a2f30681918c8dd, type: 3}
+  ngSE: {fileID: 8300000, guid: 301d6fe1e2774eb4e804096a1f0c76d7, type: 3}
+  stageManager: {fileID: 679327187}
   generator: {fileID: 835736171}
   generateList: {fileID: 1351756152}
 --- !u!114 &835736168
@@ -1268,6 +1272,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1656304804862123224, guid: 371f0acb7a10722489859aa4cd3f8477, type: 3}
+      propertyPath: BGM_Volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1656304804862123224, guid: 371f0acb7a10722489859aa4cd3f8477, type: 3}
+      propertyPath: BGM_List.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0eaa3822a67faef4fb5eccb568c74677, type: 3}
     - target: {fileID: 4398993004205458795, guid: 371f0acb7a10722489859aa4cd3f8477, type: 3}
       propertyPath: m_Name
       value: SoundManager
@@ -1698,6 +1710,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db21be591eab34eeb8030a30fa627072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  completeSE: {fileID: 8300000, guid: c2959cd817543254a91b989931a4a11d, type: 3}
+  correctSE: {fileID: 8300000, guid: 02e31f8e67d860e409cdf3a67266102d, type: 3}
   game: {fileID: 1906582070}
   generateList:
   - {fileID: 788732864}
@@ -2604,8 +2618,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e747ec1f0ffec4d10baad32c4136483a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctSE: {fileID: 8300000, guid: 2318326bef034aa4c877e85954245541, type: 3}
-  incorrectSE: {fileID: 8300000, guid: 5d3a47e4951009647b1fbf256f048cbd, type: 3}
   animals:
   - {fileID: 3107129419280036744, guid: 24940ead7a548b546982d620b00bb6d7, type: 3}
   - {fileID: 8520933468067633874, guid: 5dd845d2a805cbc439485244365ad7ea, type: 3}
@@ -2632,11 +2644,11 @@ MonoBehaviour:
   - {fileID: 8190627126778969272, guid: eccca0a3b126c134199da970e88b72e4, type: 3}
   - {fileID: 6479179748947164014, guid: 5976c19235cded04b9448b8f2b77762e, type: 3}
   numChimera: 5
-  collect1: 1
-  collect2: 2
-  collect3: 3
-  collect4: 4
-  collectAll: 5
+  correct1: 1
+  correct2: 2
+  correct3: 3
+  correct4: 4
+  correctAll: 5
   gameUsedAnimals: []
   generatedChimeraName: 
 --- !u!4 &1906582071

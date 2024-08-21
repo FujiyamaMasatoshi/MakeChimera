@@ -19,6 +19,9 @@ public class Generator : MonoBehaviour
 
     public void GenerateChimera()
     {
+        // サウンドの処理を記述、生成までに時間をかけたい
+        // サウンド開始、キメラ生成(非表示)、サウンド終了、キメラ表示、になる予定
+
         // キメラを生成する
         generatedChimera = Instantiate(chimera, generatePlace.transform.position, Quaternion.identity);
         generatedChimera.MakeChimera(game.GetFirstAnimal(), game.GetLastAnimal());
