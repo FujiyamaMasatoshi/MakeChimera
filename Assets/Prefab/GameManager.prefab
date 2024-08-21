@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  limitTime: 60
+  limitTime: 100
   isTimeAdvance: 0
   gameTime: 0
