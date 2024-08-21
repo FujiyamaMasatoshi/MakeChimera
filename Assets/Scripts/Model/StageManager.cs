@@ -11,23 +11,37 @@ public class StageManager : MonoBehaviour
     [SerializeField] private Game game = null;
     [SerializeField] private GenerateList generateList = null;
 
+    //[SerializeField] private GameObject startPanel = null;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
+        
+        
+
         // ゲームのリトライを呼び出す
         GManager.instance.RetryGame();
-        
+
         // 準備の演出
         // 「沢山キメラを作れ！」
         // 「Ready?」
         // 「Go!」
 
+        
+
+        
+        
+
         newStage();
     }
+
 
     // 新しいステージを整える。問題作成、表示、SE。
     private void newStage()
     {
+        // game start
         game.InitGame();
         generateList.SetAnswerList();
         SManager.instance.PlaySE(stageSE);
